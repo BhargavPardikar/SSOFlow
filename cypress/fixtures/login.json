@@ -1,0 +1,28 @@
+[
+    {
+        "username" : "bhargav.pardikar@xecurify.com",
+        "password" : "Bhargav@26"
+    }, 
+
+    {
+        "firstname" : "user2", 
+        "lastname": "cypress",
+        "userpassword" : "12345678",
+        "username" : "user2",
+        "email" : "user2@gmail.com" ,
+        "phone" : "9876543210"
+        
+    }, 
+
+    {
+        "groupname" : "Group1"
+    }, 
+    
+    {
+        "wordpressusername" : "bhargav.pardikar@xecurify.com",
+        "wordpresspassword" : "Bhargav@26"
+    }
+
+
+
+]
