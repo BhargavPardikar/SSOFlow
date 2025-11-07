@@ -7,10 +7,12 @@ export const wordPressidpSelectors = {
     configureapp : 'a.miniorange-oauth-20-server-orange-color' , 
     redirecturl : 'input[name="redirect_uri"]' , 
     update:  'button[name="update_client_button"][value="update_client_app"]' , 
-    clientid : '' , 
-    clientsectret : '' , 
-    authoeisationendpoint : '' , 
-    tokenendpoint : '' , 
-    userinfo : ' ' , 
-    scoeps : ' ' 
-};
+    clientid : ('tr', 'Client ID:'), 
+    clientsectret : ('tr', 'Client Secret:' ), 
+    authoeisationendpoint :  ('tr', 'Authorization Endpoint:'), 
+    tokenendpoint : ('tr', 'Token Endpoint:') , 
+    userinfo : (/(Userinfo Endpoint:|Get User Info Endpoint:)/i) , 
+    scopes : ('tr', 'Scopes:') ,
+    endpointCell: 'td.endpoint', 
+    clientSecretInput: 'input#client-secret'
+};     
