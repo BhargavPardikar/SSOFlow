@@ -1,8 +1,8 @@
 import { AddGroup } from "../../Object Repo/Flows/addgroup";
 
 class addgroup{
-    visit(){
-        cy.visit('https://bhargavpardikar.miniorange.in/moas/login');
+    visit(loginurl){
+        cy.visit(loginurl);
     }  
 
     gotoGroupstab(groupname){

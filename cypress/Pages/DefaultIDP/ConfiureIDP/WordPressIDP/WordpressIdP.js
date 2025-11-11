@@ -1,8 +1,8 @@
-import {wordPressidpSelectors} from "../../../Object Repo/DefaultIDP/ConfigureIDP/WordpressIdPSelectors" ;
+import { wordPressidpSelectors } from '../../../../Object Repo/DefaultIDP/ConfigureIDP/WordPressIdPSelectors/WordPressIdPSelectors';
 
 class WordPressConfigureIdp {
-    visit() {
-        cy.visit('https://dev-wordpress-provisioning.pantheonsite.io/login.php/');
+    visit(wordpressurl) {
+        cy.visit(wordpressurl);
     }
 
     wordpresslogin(username,password) {
@@ -37,16 +37,16 @@ class WordPressConfigureIdp {
             .invoke('text');
     };
 
-    // 🔴 VERY IMPORTANT: RETURN this whole Cypress chain
+    //  VERY IMPORTANT: RETURN this whole Cypress chain
     return (
-        // 1️⃣ Client ID
+        // Client ID
         extractEndpointText(wordPressidpSelectors.clientid, 'Client ID')
             .then((t) => {
                 urls.clientId = t.trim() || 'N/A';
                 cy.log('Captured Client ID: ' + urls.clientId);
             })
 
-        // 2️⃣ Client Secret
+        // Client Secret
             .then(() => {
                 cy.log('Attempting to capture Client Secret...');
                 return cy.contains('tr', wordPressidpSelectors.clientsectret, { timeout })
@@ -59,21 +59,21 @@ class WordPressConfigureIdp {
                 cy.log('Captured Client Secret: ' + urls.clientSecret);
             })
 
-        // 3️⃣ Authorization Endpoint
+        // Authorization Endpoint
             .then(() => extractEndpointText(wordPressidpSelectors.authoeisationendpoint, 'Authorization Endpoint'))
             .then((auth) => {
                 urls.auth = auth.trim() || 'N/A';
                 cy.log('Captured Auth Endpoint: ' + urls.auth);
             })
 
-        // 4️⃣ Token Endpoint
+        // Token Endpoint
             .then(() => extractEndpointText(wordPressidpSelectors.tokenendpoint, 'Token Endpoint'))
             .then((token) => {
                 urls.token = token.trim() || 'N/A';
                 cy.log('Captured Token Endpoint: ' + urls.token);
             })
 
-        // 5️⃣ UserInfo Endpoint
+        // UserInfo Endpoint
             .then(() => {
                 cy.log('Capturing Userinfo Endpoint...');
                 return cy.get('tr')
@@ -87,14 +87,14 @@ class WordPressConfigureIdp {
                 cy.log('Captured Userinfo Endpoint: ' + urls.userInfo);
             })
 
-        // 6️⃣ Scopes
+        // Scopes
             .then(() => extractEndpointText(wordPressidpSelectors.scopes, 'Scopes'))
             .then((scopes) => {
                 urls.scopes = scopes.trim() || 'N/A';
                 cy.log('Captured Scopes: ' + urls.scopes);
             })
 
-        // ✅ Finally wrap and return `urls`
+        // Finally wrap and return `urls`
             .then(() => cy.wrap(urls))
     );
 }

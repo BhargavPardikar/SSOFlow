@@ -17,7 +17,7 @@ describe('Adding Group' , () => {
                     cy.get('.btn.btn-light').click();
                     cy.get('.btn.btn-light').click();
         
-        addgroup.gotoGroupstab(testData[2].groupname);
+        addgroup.gotoGroupstab(testData[2].groupname); 
 
     })
 

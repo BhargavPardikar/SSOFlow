@@ -35,8 +35,8 @@ describe('Assigning User to Group' , () => {
         addgroup.gotoGroupstab(testData[2].groupname);
         
         
-        assinginguser.searchGroup();
-        assinginguser.searchusers();
+        assinginguser.searchGroup(testData[2].groupname); 
+        assinginguser.searchusers(); 
 
         
 

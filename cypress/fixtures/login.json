@@ -1,7 +1,8 @@
 [
     {
         "username" : "bhargav.pardikar@xecurify.com",
-        "password" : "Bhargav@26"
+        "password" : "Bhargav@26" ,
+        "loginurl" : "https://bhargavpardikar.miniorange.in/moas/login"
     }, 
 
     {
@@ -18,9 +19,22 @@
         "groupname" : "Group1"
     }, 
     
-    {
+    {   
+        "wordpressurl" : "https://dev-wordpress-provisioning.pantheonsite.io/login.php/",
         "wordpressusername" : "bhargav.pardikar@xecurify.com",
         "wordpresspassword" : "Bhargav@26"
+    }, 
+
+    {
+        "idptype" : "OAuth" , 
+        "idpname" : "WordPressOAuthTestIDP" , 
+        "idpurl" : " https://bhargavpardikar.miniorange.in/moas/admin/customer/customoauthconfiguration?cardId=OAuth%20Provider" 
+    },
+
+    {
+        "apptype" : "JWT" , 
+        "appname" : "TestJWTCypress" , 
+        "jwturl" : "https://jwt.io/"
     }
 
 ] 

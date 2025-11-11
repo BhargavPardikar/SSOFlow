@@ -11,6 +11,10 @@ export const IdPSelectors = {
     authorisationendpoint: '[data-testid="authorizeendpoint-input"]' , 
     tokenendpoint : '[data-testid="tokenendpoint-input"]' , 
     userinfoendpoint : '[data-testid="userinfoendpoint-input"]' ,
-    scope : '[data-testid="scope-input"]'
+    scope : '[data-testid="scope-input"]' ,
+    search : '[data-testid="search-bar"]' ,
+    actionsbutton : '[data-testid="actions-button-WordPressOAuthTestIDP"]' ,
+    makedefault: '[data-testid="make_default-menu-item"]' , 
+    makedefaultconfirm : ('button', 'Make Default')
 
 };

@@ -1,6 +1,8 @@
 import configureidp from "../../../Pages/DefaultIDP/ConfiureIDP/ConfigureIdP"; 
 import WordPressConfigureIdp from "../../../Pages/DefaultIDP/ConfiureIDP/WordpressIdP"; 
-import Login from "../../../Pages/Flows/loginpage" 
+import Login from "../../../Pages/Flows/loginpage" ;
+
+//No Hard Coded Value! Only call through json, and Follow conventions
 
 describe('Creating WordPress as an IdP' , () =>{
     let testData;
@@ -18,7 +20,7 @@ describe('Creating WordPress as an IdP' , () =>{
             cy.get('.btn.btn-light').click();
         
         
-        configureidp.addidp();
+        configureidp.addidp(testData[4].idptype, testData[4].idpname);
         configureidp.copyredirecturl();
 
         WordPressConfigureIdp.visit();

@@ -9,15 +9,17 @@ describe('WordPress - Configure OAuth Plugin using MiniOrange Redirect URL', () 
 
       cy.origin('https://dev-wordpress-provisioning.pantheonsite.io', { args: { redirectUrl } }, ({ redirectUrl }) => {
         cy.log('🔑 Visiting WordPress Admin Login Page');
-        cy.visit('/wp-login.php');
-
+        cy.visit('/wp-login.php'); 
+        cy.intercept('GET' , 'https://dev-wordpress-provisioning.pantheonsite.io/login.php/').as('contiunueButton');
+        
         cy.get('.pds-button', { timeout: 15000 }).should('be.visible').click({ force: true });
+        cy.get('@continueButton').its('response.statuscode').should('equal' , 302);
         cy.get('#user_login', { timeout: 20000 }).should('be.visible').type('bhargav.pardikar@xecurify.com');
         cy.get('#user_pass').type('Bhargav@26');
         cy.get('#wp-submit').click();
 
         cy.url().should('include', 'wp-admin');
-        cy.log('✅ Logged into WordPress Admin');
+        cy.log(' Logged into WordPress Admin');
 
         // Navigate to OAuth Plugin
         cy.get('#toplevel_page_mo_oauth_server_settings div.wp-menu-name').click({ force: true });
@@ -25,7 +27,7 @@ describe('WordPress - Configure OAuth Plugin using MiniOrange Redirect URL', () 
 
         // Paste Redirect URL from MiniOrange
         cy.get('input[name="redirect_uri"]').clear().type(redirectUrl);
-        cy.log('🔗 Pasted Redirect URL from MiniOrange');
+        cy.log(' Pasted Redirect URL from MiniOrange');
 
         // Click Update / Save
         cy.contains('Update', { timeout: 10000 }).click({ force: true });
@@ -59,7 +61,7 @@ describe('WordPress - Configure OAuth Plugin using MiniOrange Redirect URL', () 
 
           // Save all OAuth details back to file
           cy.writeFile('cypress/fixtures/oauthData.json', oauthData);
-          cy.log('✅ Saved all OAuth Data:', JSON.stringify(oauthData, null, 2));
+          cy.log(' Saved all OAuth Data:', JSON.stringify(oauthData, null, 2));
         });
       });
     });

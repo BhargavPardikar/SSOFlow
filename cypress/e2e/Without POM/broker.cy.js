@@ -1,4 +1,4 @@
-//Login to Dashboard function
+                  //Login to Dashboard function
 function loginToDashboard() {
     cy.visit('https://bhargavpardikar.miniorange.in/moas/login');
     cy.get('#username').type('bhargav.pardikar@xecurify.com'); // Enter Username

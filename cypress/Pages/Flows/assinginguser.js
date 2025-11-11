@@ -1,8 +1,8 @@
 import { AssignUser } from "../../Object Repo/Flows/assigning";
 
 class assignUser{
-    searchGroup(){
-        cy.get(AssignUser.searchgroup).type('Group1{enter}');
+    searchGroup(groupname){
+        cy.get(AssignUser.searchgroup).type(groupname);
         cy.get(AssignUser.select).click({force : true});
         cy.contains(AssignUser.assign).click();
     }
