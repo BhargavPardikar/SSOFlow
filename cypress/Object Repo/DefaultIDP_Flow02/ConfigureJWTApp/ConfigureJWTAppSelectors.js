@@ -7,4 +7,4 @@ export const CustomJWtApp = {
     redirecturl : '[data-testid="redirecturls-field"]' , 
     save : '[data-testid="save-button"]'
 
-} ;
+} ; 

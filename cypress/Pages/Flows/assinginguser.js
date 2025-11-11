@@ -1,7 +1,9 @@
 import { AssignUser } from "../../Object Repo/Flows/assigning";
+import { AddGroup } from "../../Object Repo/Flows/addgroup";
 
 class assignUser{
     searchGroup(groupname){
+        cy.get(AddGroup.managegroups, { timeout: 10000 }).click();
         cy.get(AssignUser.searchgroup).type(groupname);
         cy.get(AssignUser.select).click({force : true});
         cy.contains(AssignUser.assign).click();

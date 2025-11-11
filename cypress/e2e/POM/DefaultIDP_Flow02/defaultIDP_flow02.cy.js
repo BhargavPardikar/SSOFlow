@@ -40,6 +40,7 @@ describe('WordPress as an Default IDP' , () => {
             configureidp.checkidp(); 
         }); 
         configureidp.makedefault(testData[4].idpname);
+        cy.wait(5000);
 
         //Add User
         adduser.gotoUserstab();
@@ -60,15 +61,14 @@ describe('WordPress as an Default IDP' , () => {
         assinginguser.searchGroup(testData[2].groupname); 
         assinginguser.searchusers();  
 
-        //Create App 
+        //Create App  
         JWTApp.addapp(testData[5].apptype,testData[5].appname,testData[5].jwturl);
-        CreatePolicy.makepolicy(testData[3].groupname); 
+        CreatePolicy.makepolicy();  
+        cy.wait(5000);
 
         //TestSSO 
-        TestSSOFlow.copyingurl(); 
-        TestSSOFlow.pastingurl();
+        TestSSOFlow.copyingurl();  
         TestSSOFlow.checkingflow(testData[1].email,testData[1].userpassword);
-
 
     });
 

@@ -15,6 +15,6 @@ export const IdPSelectors = {
     search : '[data-testid="search-bar"]' ,
     actionsbutton : '[data-testid="actions-button-WordPressOAuthTestIDP"]' ,
     makedefault: '[data-testid="make_default-menu-item"]' , 
-    makedefaultconfirm : ('button', 'Make Default')
+    makedefaultconfirm : 'button.mo-btn-primary.add-app'
 
 };

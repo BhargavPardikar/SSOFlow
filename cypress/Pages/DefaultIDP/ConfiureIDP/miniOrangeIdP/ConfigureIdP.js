@@ -49,7 +49,7 @@ class configureidp{
         cy.get(IdPSelectors.search).type(idpname);
         cy.get(IdPSelectors.actionsbutton).click();
         cy.get(IdPSelectors.makedefault).click();
-        cy.contains(IdPSelectors.makedefaultconfirm).click();
+        cy.get(IdPSelectors.makedefaultconfirm).last().click({ force: true }); //canrfind any selector here
     }
 
 };

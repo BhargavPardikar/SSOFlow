@@ -5,9 +5,11 @@ class CreatePolicy{
     //The name of the app gets auto-entered in Application name input field, 
     //Just Enter the Group name and policy name 
     
-    makepolicy (groupname) {
+    makepolicy () {
         cy.get(AddPolicy.addpolicybutton).click();
-        cy.get(AddPolicy.selectgroup).click({ force: true }).type(groupname); //Group1 is created here! Enter your group name or else DEFAULT
+        cy.get(AddPolicy.selectgroup).click({ force: true }).type('Group1{enter}', { delay: 100 }).click({ force: true });
+        cy.wait(2000);
+         //Group1 is created here! Enter your group name or else DEFAULT
         cy.get(AddPolicy.save).click();
     }
 
