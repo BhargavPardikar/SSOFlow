@@ -1,0 +1,17 @@
+// This is for notes 
+
+// Default Flow 02 - User and Policy is in same non default group {Positive Test  Case} 
+// Points to note:- 
+// 1. With origin I can navigate between wordperss and IDP while configuring IDP 
+// 2. Why does the written code breaks always ? 
+// 3. I'm redirecting to jwt.io not getting authenticated first from WOrdpress, and origin issue and going to jwt.io 
+// 4. How to import things perfectly ? Stucked there many times 
+// 5. Origin issue, as cant redierct to panthroin
+// 6. ReferenceError: wordPressidpSelectors is not defined
+
+// Cause:
+// Cypress commands that run inside a cy.origin() block are completely isolated from your main test context.
+// This means that any variables, constants, imports, or selectors defined outside the cy.origin() block are not accessible inside it by default.
+
+// The variable wordPressidpSelectors is not accessible inside the cy.origin() block because of Cypress’s origin isolation.
+// To fix this, pass the selectors through the args parameter when calling cy.origin().

@@ -31,7 +31,7 @@ class configureidp{
         //cy.visit('https://bhargavpardikar.miniorange.in/moas/admin/customer/customoauthconfiguration?cardId=OAuth%20Provider');
         //this.reloginIfExpired(username, password) 
 
-        cy.get(IdPSelectors.displayname).clear().type(idpname);
+        cy.get(IdPSelectors.displayname).wait(2000).clear().wait(2000).type(idpname);
         cy.get(IdPSelectors.clientid).type(urls.clientId);
         cy.get(IdPSelectors.clientsecret).type(urls.clientSecret);
         cy.get(IdPSelectors.authorisationendpoint).type(urls.auth);
@@ -55,4 +55,5 @@ class configureidp{
 };
 
 export default new configureidp();
+
 

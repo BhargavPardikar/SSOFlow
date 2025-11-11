@@ -68,7 +68,7 @@ describe('WordPress as an Default IDP' , () => {
 
         //TestSSO 
         TestSSOFlow.copyingurl();  
-        TestSSOFlow.checkingflow(testData[1].email,testData[1].userpassword);
+        TestSSOFlow.visitAndLogin(testData[1].email,testData[1].userpassword); 
 
     });
 
